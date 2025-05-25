@@ -5,18 +5,24 @@ def get_book_text(filepath):
     
     return file_contents
 
-def count_words(text_content):
-    return len(text_content.split())
+#import the counting function from stats.py
+from stats import count_words
 
 
+#import character counting function from stats.py
+from stats import count_characters
 
+#print word count in a book
 def main():
 
     book_text = get_book_text("/home/jakub/workspace/github.com/xbudzy/bookbot/books/frankenstein.txt")
 
     word_count = count_words(book_text)
 
+    counted_characters = count_characters(book_text)
+
     print(f"{word_count} words found in the document")
+    print(counted_characters)
 
 
 

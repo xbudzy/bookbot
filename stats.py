@@ -23,6 +23,14 @@ def count_characters(booktext):
 
 
 
+def sort_on(dict):
+    return dict["num"]
 
+# sorted list of dictionaries
 
+def sorted_dicts(char_counts):
+    list_of_dicts = [{"char": char, "num": count} for (char, count) in char_counts.items()] 
+    list_of_dicts.sort(reverse=True, key=sort_on)
 
+    return list_of_dicts 
+    

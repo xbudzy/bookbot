@@ -1,3 +1,5 @@
+import sys
+
 # get book text function and return it as a string
 def get_book_text(filepath):
     with open(filepath) as f:
@@ -17,8 +19,11 @@ from stats import sorted_dicts
 
 #print word count in a book
 def main():
-    book_path = "books/frankenstein.txt"
-    book_text = get_book_text("/home/jakub/workspace/github.com/xbudzy/bookbot/books/frankenstein.txt")
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    filepath = sys.argv[1]
+    book_text = get_book_text(filepath)
 
     word_count = count_words(book_text)
 
@@ -26,7 +31,7 @@ def main():
 
     
     print("============ BOOKBOT ============")
-    print(f"Alanyzing book found at {book_path}...")
+    print(f"Alanyzing book found at {filepath}...")
     print("----------- Word Count ----------")
     print(f"Found {word_count} total words")
     print("--------- Character Count -------")
